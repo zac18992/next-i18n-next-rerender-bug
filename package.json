@@ -1,20 +1,26 @@
 {
-  "name": "react-i18n-next-rerender-bug",
+  "name": "next-i18n-next-rerender-bug",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "skip-postinstall || patch-package",
+    "install-with-fix": "rm -rf node_modules; rm -rf .next; yarn install;  yarn dev;",
+    "install-without-fix": "rm -rf node_modules; rm -rf .next; SKIP_POSTINSTALL=1 yarn install; yarn dev;"
   },
   "dependencies": {
-    "next": "12.3.1",
-    "react": "18.2.0",
+    "next": "^12.3.1",
+    "next-i18next": "^12.0.1",
+    "patch-package": "^6.4.7",
+    "react": "^18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
     "eslint": "8.23.1",
-    "eslint-config-next": "12.3.1"
+    "eslint-config-next": "12.3.1",
+    "skip-postinstall": "^1.0.0"
   }
 }
